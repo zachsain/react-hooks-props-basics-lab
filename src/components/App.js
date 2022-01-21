@@ -3,19 +3,25 @@ import NavBar from "./NavBar";
 import Home from "./Home";
 import About from "./About";
 
+
 // pass this data down as props to the child component(s) that need it!
 import user from "../data/user";
+import { useReducer } from "react/cjs/react.production.min";
 console.log(user);
 
 function App() {
   return (
     <div>
       <NavBar />
-      <Home name = "Zachary" 
-            city = "Memphis"/>
-      <About bio = "Cool guy, like to play chess and music" 
-            github = "github.com"
-            linkedin = "linkedin.com"/>
+      <Home name = {user.name}
+            city = {user.city}  
+            color = {user.color}/>
+           
+      <About bio = {user.bio}
+             github = {user.links.github}
+             linkedin = {user.links.linkedin} />
+           
+         
     </div>
   );
 }
